@@ -64,6 +64,7 @@ class Presenter(
     override fun createNote(title: String, body: String) {
         if (title.isEmpty() || body.isEmpty()) {
             view.displayError("Titulo e corpo da nota devem ser preenchidos")
+            return
         }
         val note = Note(title = title, body = body)
         val disposable = dataSource.createNote(note)
